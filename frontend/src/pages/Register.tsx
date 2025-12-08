@@ -9,9 +9,11 @@ const Register: React.FC<{ onRegister: () => void }> = ({ onRegister }) => {
   const [password, setPassword] = useState('');
   const [confirm, setConfirm] = useState('');
   const [error, setError] = useState('');
+  const [success, setSuccess] = useState('');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setSuccess('');
     if (!email || !password || !confirm) {
       setError('All fields are required.');
       return;
@@ -23,9 +25,12 @@ const Register: React.FC<{ onRegister: () => void }> = ({ onRegister }) => {
     try {
       await createUserWithEmailAndPassword(auth, email, password);
       setError('');
+      setSuccess('Registration successful!');
+      setTimeout(() => setSuccess(''), 2500);
       onRegister();
     } catch (err: any) {
       setError(err.message || 'Registration failed.');
+      setSuccess('');
     }
   };
 
@@ -33,6 +38,7 @@ const Register: React.FC<{ onRegister: () => void }> = ({ onRegister }) => {
     <div className={styles.registerContainer}>
       <form className={styles.registerCard} onSubmit={handleSubmit}>
         <h2>Register</h2>
+        {success && <div className={styles.success}>{success}</div>}
         {error && <div className={styles.error}>{error}</div>}
         <input
           type="email"

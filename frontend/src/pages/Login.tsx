@@ -8,9 +8,11 @@ const Login: React.FC<{ onLogin: () => void }> = ({ onLogin }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [success, setSuccess] = useState('');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setSuccess('');
     if (!email || !password) {
       setError('Please enter email and password.');
       return;
@@ -18,9 +20,12 @@ const Login: React.FC<{ onLogin: () => void }> = ({ onLogin }) => {
     try {
       await signInWithEmailAndPassword(auth, email, password);
       setError('');
+      setSuccess('Login successful!');
+      setTimeout(() => setSuccess(''), 2500);
       onLogin();
     } catch (err: any) {
       setError(err.message || 'Login failed.');
+      setSuccess('');
     }
   };
 
@@ -28,6 +33,7 @@ const Login: React.FC<{ onLogin: () => void }> = ({ onLogin }) => {
     <div className={styles.loginContainer}>
       <form className={styles.loginCard} onSubmit={handleSubmit}>
         <h2>Login</h2>
+        {success && <div className={styles.success}>{success}</div>}
         {error && <div className={styles.error}>{error}</div>}
         <input
           type="email"
