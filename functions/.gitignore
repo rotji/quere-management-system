@@ -7,7 +7,4 @@ typings/
 
 # Node.js dependency directory
 node_modules/
-
 *.local
-firebase-debug.log
-# Test: repo link verification
