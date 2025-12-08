@@ -1,0 +1,70 @@
+.registerContainer {
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #181a20;
+}
+
+.registerCard {
+  background: #23272f;
+  color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  min-width: 320px;
+}
+
+.registerCard h2 {
+  margin-bottom: 0.5rem;
+}
+
+.registerCard input {
+  padding: 0.7rem 1rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  background: #181a20;
+  color: #fff;
+}
+
+.registerCard button {
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 0.7rem 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.registerCard button:hover {
+  background: #0056b3;
+}
+
+.error {
+  background: #d32f2f;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+  font-size: 0.98rem;
+}
+
+.switchLink {
+  margin-top: 1rem;
+  text-align: center;
+  color: #fff;
+  font-size: 1rem;
+}
+
+.switchLink a {
+  color: #007bff;
+  text-decoration: underline;
+  margin-left: 0.3rem;
+}
