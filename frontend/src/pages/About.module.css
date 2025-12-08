@@ -6,11 +6,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #181a20 0%, #23272f 100%);
+  background: #fff;
 }
 
 .aboutCard {
-  background: rgba(255,255,255,0.04);
+  background: #23272f;
   border-radius: 18px;
   box-shadow: 0 4px 32px rgba(0,0,0,0.18);
   padding: 3rem 2.5rem;

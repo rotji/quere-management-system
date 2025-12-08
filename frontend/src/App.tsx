@@ -5,6 +5,8 @@ import Queues from './pages/Queues';
 import About from './pages/About';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import OrganizationRegister from './pages/OrganizationRegister';
+import Dashboard from './pages/Dashboard';
 import { useState, useEffect } from 'react';
 import { auth } from './firebaseAuth';
 import { onAuthStateChanged, signOut } from 'firebase/auth';
@@ -32,6 +34,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/queues" element={<Queues />} />
           <Route path="/about" element={<About />} />
+          <Route path="/register-organization" element={<OrganizationRegister />} />
+          <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
         {!isAuthenticated && (
           showRegister ? (

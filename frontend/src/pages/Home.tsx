@@ -13,7 +13,6 @@ const Home: React.FC = () => {
         <p className={styles.subtitle}>Create remote queues for your customers and help your organization avoid the stress of long lines.</p>
         <div className={styles.buttonGroup}>
           <Button onClick={() => navigate('/register-organization')}>Register Organization</Button>
-          <Button onClick={() => navigate('/login')}>Get Started</Button>
         </div>
         <div className={styles.features}>
           <div className={styles.featureCard}>
