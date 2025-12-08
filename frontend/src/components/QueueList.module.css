@@ -1,0 +1,56 @@
+.queueListContainer {
+  background: #23272f;
+  border-radius: 10px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+  padding: 1.2rem 1.1rem;
+  margin-top: 1.2rem;
+  color: #fff;
+}
+
+.queueList {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem 0;
+}
+
+.queueItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #333;
+}
+
+.status {
+  font-size: 0.95rem;
+  color: #4fc3f7;
+}
+
+.addQueueForm {
+  display: flex;
+  gap: 0.7rem;
+  margin-top: 1rem;
+}
+
+.addQueueForm input {
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  border: none;
+  background: #181a20;
+  color: #fff;
+}
+
+.addQueueForm button {
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 1.2rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.addQueueForm button:hover {
+  background: #0056b3;
+}

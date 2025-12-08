@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styles from './OrganizationRegister.module.css';
 import { getFirestore, collection, addDoc } from 'firebase/firestore';
 import { auth } from '../firebaseAuth';
@@ -9,6 +10,7 @@ const OrganizationRegister: React.FC = () => {
   const [address, setAddress] = useState('');
   const [success, setSuccess] = useState('');
   const [error, setError] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -27,6 +29,7 @@ const OrganizationRegister: React.FC = () => {
       setName('');
       setEmail('');
       setAddress('');
+      setTimeout(() => navigate('/dashboard'), 1000);
     } catch (err: any) {
       setError(err.message || 'Registration failed.');
     }
