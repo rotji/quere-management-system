@@ -5,7 +5,7 @@ import Queues from './pages/Queues';
 import About from './pages/About';
 import Login from './pages/Login';
 import Register from './pages/Register';
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { auth } from './firebaseAuth';
 import { onAuthStateChanged, signOut } from 'firebase/auth';
 
