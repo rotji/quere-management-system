@@ -9,6 +9,7 @@ interface LayoutProps {
 const Layout: React.FC<LayoutProps> = ({ children, onLogout }) => (
   <div className={styles.layout}>
     <nav className={styles.navbar}>
+      <div className={styles.brand}>QMS</div>
       <ul>
         <li><Link to="/">Home</Link></li>
         <li><Link to="/queues">Queues</Link></li>

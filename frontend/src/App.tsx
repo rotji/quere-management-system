@@ -11,6 +11,7 @@ import { onAuthStateChanged, signOut } from 'firebase/auth';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [showRegister, setShowRegister] = useState(false);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, user => {
@@ -26,20 +27,29 @@ function App() {
 
   return (
     <Router>
-      {isAuthenticated ? (
-        <Layout onLogout={handleLogout}>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/queues" element={<Queues />} />
-            <Route path="/about" element={<About />} />
-          </Routes>
-        </Layout>
-      ) : (
+      <Layout onLogout={isAuthenticated ? handleLogout : undefined}>
         <Routes>
-          <Route path="/register" element={<Register onRegister={() => setIsAuthenticated(true)} />} />
-          <Route path="/*" element={<Login onLogin={() => setIsAuthenticated(true)} />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/queues" element={<Queues />} />
+          <Route path="/about" element={<About />} />
         </Routes>
-      )}
+        {!isAuthenticated && (
+          showRegister ? (
+            <Register onRegister={() => { setIsAuthenticated(true); setShowRegister(false); }} />
+          ) : (
+            <Login onLogin={() => setIsAuthenticated(true)} />
+          )
+        )}
+        {!isAuthenticated && (
+          <div style={{ textAlign: 'center', marginTop: '1rem' }}>
+            {showRegister ? (
+              <button onClick={() => setShowRegister(false)}>Already have an account? Login</button>
+            ) : (
+              <button onClick={() => setShowRegister(true)}>Don't have an account? Register</button>
+            )}
+          </div>
+        )}
+      </Layout>
     </Router>
   );
 }
